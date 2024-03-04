@@ -1,4 +1,4 @@
-package entities;
+package com.desafios.cripftografia.entities.sensitiveData;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
