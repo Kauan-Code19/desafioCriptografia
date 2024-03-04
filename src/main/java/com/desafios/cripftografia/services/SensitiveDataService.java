@@ -1,7 +1,7 @@
 package com.desafios.cripftografia.services;
 
 import com.desafios.cripftografia.dtos.SensitiveDataDto;
-import com.desafios.cripftografia.entities.SensitiveDataEntity;
+import com.desafios.cripftografia.entities.sensitiveData.SensitiveDataEntity;
 import com.desafios.cripftografia.repositories.SensitiveDataRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
