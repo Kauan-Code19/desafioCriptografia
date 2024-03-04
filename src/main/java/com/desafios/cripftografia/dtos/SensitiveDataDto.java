@@ -1,6 +1,6 @@
 package com.desafios.cripftografia.dtos;
 
-import com.desafios.cripftografia.entities.SensitiveDataEntity;
+import com.desafios.cripftografia.entities.sensitiveData.SensitiveDataEntity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
