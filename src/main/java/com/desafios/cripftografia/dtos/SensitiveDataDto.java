@@ -8,13 +8,13 @@ import lombok.NoArgsConstructor;
 @Getter
 public class SensitiveDataDto {
     private Long id;
-    private String UserDocument;
+    private String userDocument;
     private String creditCardToken;
     private Long value;
 
     public SensitiveDataDto(SensitiveDataEntity entity) {
         id = entity.getId();
-        UserDocument = entity.getUserDocument();
+        userDocument = entity.getUserDocument();
         creditCardToken = entity.getCreditCardToken();
         value = entity.getValue();
     }
