@@ -40,6 +40,12 @@ public class ClientEntity implements UserDetails {
     @Column(name = "level")
     private AcessLevel level;
 
+    public ClientEntity(String login, String password, AcessLevel level) {
+        this.login = login;
+        this.password = password;
+        this.level = level;
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         if (this.level == AcessLevel.PREMIUM) {
