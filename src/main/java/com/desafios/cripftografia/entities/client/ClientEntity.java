@@ -49,9 +49,9 @@ public class ClientEntity implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         if (this.level == AcessLevel.PREMIUM) {
-            return List.of(new SimpleGrantedAuthority("LEVEL_PREMIUM"),
-                    new SimpleGrantedAuthority("LEVEL_COMMON"));
-        } else return List.of(new SimpleGrantedAuthority("LEVEL_COMMON"));
+            return List.of(new SimpleGrantedAuthority("ROLE_PREMIUM"),
+                    new SimpleGrantedAuthority("ROLE_COMMON"));
+        } else return List.of(new SimpleGrantedAuthority("ROLE_COMMON"));
     }
 
     @Override

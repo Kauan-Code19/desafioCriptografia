@@ -1,9 +1,11 @@
 package com.desafios.cripftografia.controllers;
 
 import com.desafios.cripftografia.dtos.AuthenticationDto;
+import com.desafios.cripftografia.dtos.LoginResponseDto;
 import com.desafios.cripftografia.dtos.RegisterDto;
 import com.desafios.cripftografia.entities.client.ClientEntity;
 import com.desafios.cripftografia.repositories.ClientRepository;
+import com.desafios.cripftografia.security.services.TokenService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -24,6 +26,9 @@ public class AuthenticationController {
     @Autowired
     private ClientRepository clientRepository;
 
+    @Autowired
+    private TokenService tokenService;
+
     @PostMapping("/login")
     public ResponseEntity login(@RequestBody @Valid AuthenticationDto authenticationDto) {
         var usernamePassword = new UsernamePasswordAuthenticationToken(authenticationDto.login(),
@@ -31,7 +36,9 @@ public class AuthenticationController {
 
         var auth = this.authenticationManager.authenticate(usernamePassword);
 
-        return ResponseEntity.ok().build();
+        var token = tokenService.generateToken((ClientEntity) auth.getPrincipal());
+
+        return ResponseEntity.ok(new LoginResponseDto(token));
     }
 
     @PostMapping("/register")
